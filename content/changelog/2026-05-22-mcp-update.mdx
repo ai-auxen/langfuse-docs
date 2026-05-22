@@ -1,0 +1,190 @@
+---
+date: 2026-05-22
+title: "Our biggest MCP update yet"
+description: "The hosted Langfuse MCP server now includes new tools for working with observations, metrics, scores, datasets, comments, and annotation queues from AI agents."
+author: Ben
+---
+
+import { ChangelogHeader } from "@/components/changelog/ChangelogHeader";
+
+<ChangelogHeader />
+
+With this update, Langfuse project data becomes directly available in MCP-compatible workflows. Agents can inspect observations, query metrics, manage scores, work with datasets, create comments, and operate on annotation queues without switching tools.
+
+This opens up new workflows for using Langfuse in agentic development. For example, an agent can investigate a production issue, pull the relevant observation details, compare metrics, create or update scores, add comments for the team, or prepare dataset items for regression testing.
+
+The goal is to make Langfuse data actionable where teams already work with AI agents: in IDEs, automation workflows, and custom internal tools. Instead of copying data between systems, agents can use Langfuse as shared context for debugging, evaluation, and continuous improvement.
+
+This complements the [Langfuse CLI](/changelog/2026-02-17-langfuse-cli), which remains a good fit for terminal workflows, CI scripts, and direct access to the full Langfuse API. The hosted MCP server is optimized for MCP-compatible agents that benefit from structured tool discovery, typed inputs, and no local CLI setup. Together, they give teams two ways to make Langfuse available to agents: a command-line interface for shell-native automation and an MCP interface for agent-native workflows.
+
+## Added tools
+
+<table>
+  <tbody>
+    <tr>
+      <td className="p-4">
+        <strong>Observations</strong>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-2 leading-4">
+          <code>listObservations</code>
+          <code>getObservation</code>
+          <code>getObservationFieldSchema</code>
+          <code>getObservationFilterSchema</code>
+          <code>getObservationFilterValues</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td className="p-4">
+        <strong>Metrics</strong>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-2 leading-4">
+          <code>getMetricsSchema</code>
+          <code>queryMetrics</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td className="p-4">
+        <strong>Scores</strong>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-2 leading-4">
+          <code>listScores</code>
+          <code>getScore</code>
+          <code>createScore</code>
+          <code>deleteScore</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td className="p-4">
+        <strong>Score configs</strong>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-2 leading-4">
+          <code>listScoreConfigs</code>
+          <code>getScoreConfig</code>
+          <code>createScoreConfig</code>
+          <code>updateScoreConfig</code>
+          <code>deleteScoreConfig</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td className="p-4">
+        <strong>Comments</strong>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-2 leading-4">
+          <code>listComments</code>
+          <code>getComment</code>
+          <code>createComment</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td className="p-4">
+        <strong>Datasets</strong>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-2 leading-4">
+          <code>listDatasets</code>
+          <code>getDataset</code>
+          <code>createDataset</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td className="p-4">
+        <strong>Dataset items</strong>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-2 leading-4">
+          <code>listDatasetItems</code>
+          <code>getDatasetItem</code>
+          <code>createDatasetItem</code>
+          <code>deleteDatasetItem</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td className="p-4">
+        <strong>Dataset runs</strong>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-2 leading-4">
+          <code>listDatasetRuns</code>
+          <code>getDatasetRun</code>
+          <code>deleteDatasetRun</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td className="p-4">
+        <strong>Dataset run items</strong>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-2 leading-4">
+          <code>listDatasetRunItems</code>
+          <code>createDatasetRunItem</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td className="p-4">
+        <strong>Models</strong>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-2 leading-4">
+          <code>listModels</code>
+          <code>getModel</code>
+          <code>createModel</code>
+          <code>deleteModel</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td className="p-4">
+        <strong>Annotation queues</strong>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-2 leading-4">
+          <code>listAnnotationQueues</code>
+          <code>getAnnotationQueue</code>
+          <code>createAnnotationQueue</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td className="p-4">
+        <strong>Annotation queue items</strong>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-2 leading-4">
+          <code>listAnnotationQueueItems</code>
+          <code>getAnnotationQueueItem</code>
+          <code>createAnnotationQueueItem</code>
+          <code>updateAnnotationQueueItem</code>
+          <code>deleteAnnotationQueueItem</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td className="p-4">
+        <strong>Annotation queue assignments</strong>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-2 leading-4">
+          <code>createAnnotationQueueAssignment</code>
+          <code>deleteAnnotationQueueAssignment</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td className="p-4">
+        <strong>Media</strong>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-2 leading-4">
+          <code>getMedia</code>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td className="p-4">
+        <strong>Health</strong>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-2 leading-4">
+          <code>getHealth</code>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<Callout type="info">
+View the full MCP tool list, input schemas, and setup snippets in our [MCP Reference](https://mcp.reference.langfuse.com).
+</Callout>
+
+## Feedback
+
+We'd love to hear about your experience and learn more about how you are using the MCP server. Please share your use cases, feedback, and ideas in our [GitHub Discussion](https://github.com/orgs/langfuse/discussions/10605).
+
+## Get started
+
+- [MCP Server Documentation](/docs/api-and-data-platform/features/mcp-server) - Complete setup guide
+- [MCP Reference](https://mcp.reference.langfuse.com) - Current tools, setup snippets, schemas, and generated requests
